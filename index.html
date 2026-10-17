@@ -182,8 +182,7 @@
             justify-content: center;
             text-align: center;
             padding: 0 2rem;
-            /* يمكنك استبدال صورة الهيرو أدناه باسم صورتك الخاصة مثل: images/hero-bg.jpg */
-            background: linear-gradient(to bottom, rgba(10,10,12,0.6), var(--bg-primary)), url('images/hero-bg.jpg') center/cover no-repeat;
+            background: linear-gradient(to bottom, rgba(10,10,12,0.6), var(--bg-primary)), url('images/KAVER.jpg') center/cover no-repeat;
             background-color: var(--bg-secondary);
             position: relative;
         }
@@ -650,8 +649,8 @@
         <ul class="nav-links">
             <li><a class="nav-link active" onclick="switchPage('home')">الرئيسية</a></li>
             <li><a class="nav-link" onclick="switchPage('gallery')">الصور</a></li>
-            <li><a class="nav-link" onclick="switchPage('exhibitions')">مشاهد من الرواية </a></li>
-            <li><a class="nav-link" onclick="switchPage('about')">عن ظل الشجرةا</a></li>
+            <li><a class="nav-link" onclick="switchPage('exhibitions')">مشاهد من الرواية</a></li>
+            <li><a class="nav-link" onclick="switchPage('about')">عن ظل الشجرة</a></li>
             <li><a class="nav-link" onclick="switchPage('contact')">تواصل معنا</a></li>
         </ul>
         <div class="header-actions">
@@ -666,8 +665,8 @@
         <div class="hero">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-           <h1 class="hero-title">ظل الشجرة ((شطح الى عالم موازى ))</h1>
-              <p class="hero-subtitle">«ثلاثية روائية نسجت خيوطها بين واقعٍ يخلب العقول، ورومانسيةٍ تشدو للوجدان، وفنتازيا تحلّق في آفاق الخيال.. صُممت صياغتها لتخاطب ذائقة النخبة.»</p>
+               <h1 class="hero-title">ظل الشجرة (شطح إلى عالم موازى)</h1>
+               <p class="hero-subtitle">«ثلاثية روائية نسجت خيوطها بين واقعٍ يخلب العقول، ورومانسيةٍ تشدو للوجدان، وفنتازيا تحلّق في آفاق الخيال.. صُممت صياغتها لتخاطب ذائقة النخبة.»</p>
                 <button class="cta-btn" onclick="switchPage('gallery')">استكشف المشاهد</button>
             </div>
         </div>
@@ -676,7 +675,7 @@
         <div class="featured-slider">
             <div class="section-header">
                 <h2 class="section-title">شخصيات مؤثرة</h2>
-                <p class="section-subtitle">نبض من قلب الرواية </p>
+                <p class="section-subtitle">نبض من قلب الرواية</p>
             </div>
             <div class="slider-container">
                 <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
@@ -691,7 +690,7 @@
     <!-- Page 2: Gallery -->
     <section id="page-gallery" class="page">
         <div class="section-header">
-            <h2 class="section-title">نبذة من فصول الرواية </h2>
+            <h2 class="section-title">نبذة من فصول الرواية</h2>
             <p class="section-subtitle">تصفح دور الشخصيات</p>
         </div>
 
@@ -699,7 +698,7 @@
             <button class="filter-btn active" onclick="filterGallery('all')">الكل</button>
             <button class="filter-btn" onclick="filterGallery('paintings')">شخصيات عالم الواقع</button>
             <button class="filter-btn" onclick="filterGallery('sculptures')">شخصيات عالم البرزخ</button>
-            <button class="filter-btn" onclick="filterGallery('digital')">شخصيات من عالم الروح </button>
+            <button class="filter-btn" onclick="filterGallery('digital')">شخصيات من عالم الروح</button>
         </div>
 
         <div class="gallery-grid" id="galleryGrid">
@@ -710,7 +709,7 @@
     <!-- Page 3: Exhibitions -->
     <section id="page-exhibitions" class="page">
         <div class="section-header">
-            <h2 class="section-title">الأجزاء القادمة </h2>
+            <h2 class="section-title">الأجزاء القادمة</h2>
         </div>
         <div class="exhibitions-list" id="exhibitionsList">
             <!-- Dynamic Exhibitions -->
@@ -720,13 +719,13 @@
     <!-- Page 4: About -->
     <section id="page-about" class="page">
         <div class="section-header">
-            <h2 class="section-title">عن ظل الشجرةا</h2>
+            <h2 class="section-title">عن ظل الشجرة</h2>
             <p class="section-subtitle">رواية تجمع بين الرومانسية الشغوفة والخيال الساحر</p>
         </div>
         <div style="max-width: 800px; margin: 0 auto; padding: 0 4% 5rem; text-align: center; color: var(--text-muted); line-height: 2;">
             <p>«أعمالٌ روائية تتجاوز حدود المألوف؛ حيث يتمازج الذهول بالحب والأسطورة، في صياغةٍ أدبية رفيعة لا تقتنيها إلا الذوائق الاستثنائية.»</p>
             <br>
-            <p> ي«مجموعة روائية تجمع بين غرابة الواقع، وسحر الرومانسية، وجنون الخيال.. صِيغت بحرفيةٍ أدبية عالية لتليق بالنخبة من عشاق الأدب الرفيع.»</p>
+            <p>«مجموعة روائية تجمع بين غرابة الواقع، وسحر الرومانسية، وجنون الخيال.. صِيغت بحرفيةٍ أدبية عالية لتليق بالنخبة من عشاق الأدب الرفيع.»</p>
         </div>
     </section>
 
@@ -734,7 +733,7 @@
     <section id="page-contact" class="page">
         <div class="section-header">
             <h2 class="section-title">تواصل معنا</h2>
-            <p class="section-subtitle">للحجزواقتناء المجموعة</p>
+            <p class="section-subtitle">للحجز واقتناء المجموعة</p>
         </div>
         <div class="contact-container">
             <form class="contact-form" onsubmit="handleContact(event)">
@@ -797,64 +796,78 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-logo">ظل  الشجرة 
+        <div class="footer-logo">ظل الشجرة</div>
         <p>&copy; الصفحة الرئيسية للرواية. جميع الحقوق محفوظة.</p>
     </footer>
 
     <script>
-        /* 
-           قم بتعديل خاصية image لكل عمل بوضع مسار الصورة المخزنة في جهازك 
-           مثال: "images/art1.jpg" أو "my_folder/photo.png"
-        */
-        const artData = [ 
+        // ربط البيانات بالصور الفعلية الموجودة في المجلد (images/)
+        const artData = [  
             {
                 id: 1,
                 title: "خالد",
+                artist: "عالم الواقع",
                 category: "paintings",
-                image: "images/KHALED.jpg", 
-                desc: "عمل زيتي استثنائي يتناول التداخل بين الذاكرة والوقت بألوان ذهبية وداكنة عميقة."
+                price: "الإصدار الأول",
+                image: "images/KHALED.jpg",  
+                desc: "بطل الأحداث الذي يتنقل بين خيوط الذاكرة وعالم موازٍ مليء بالأسرار."
             },
             {
                 id: 2,
-                title: "خلود الذهبي",
-                artist: "سارة الفليج",
+                title: "سدن",
+                artist: "عالم البرزخ",
                 category: "sculptures",
-                price: "$28,000",
-                image: "images/art2.jpg", 
-                desc: "منحوتة برونزية مطعمة بأوراق الذهب الخالص تعبر عن الشغف والأناقة المستمرة."
+                price: "الإصدار الثاني",
+                image: "images/SADN.png",  
+                desc: "شخصية محورية تحمل أسرار الأبعاد الغامضة وتتقاطع طرقها مع خالد."
             },
             {
                 id: 3,
-                title: "أبعاد سريالية",
-                artist: "ماركوس راين",
+                title: "ماريا",
+                artist: "عالم الروح",
                 category: "digital",
-                price: "$9,200",
-                image: "images/art3.jpg", 
-                desc: "فن رقمي فريد مطبوع بقماش كانفاس متحف يجمع بين الضوء والظلال المستقبليتين."
+                price: "الإصدار الخاص",
+                image: "images/MARIA.png",  
+                desc: "طيف نقي يربط بين عوالم الوعي واللاشعور بروحانية طاغية."
             },
             {
                 id: 4,
-                title: "سيمفونية الصحراء",
-                artist: "نورة الجابر",
+                title: "نوارة",
+                artist: "عالم الواقع",
                 category: "paintings",
-                price: "$18,000",
-                image: "images/art4.jpg", 
-                desc: "لوحة تعبر عن انسيابية الرمال العربية تحت أضواء النجوم الخافتة."
+                price: "الإصدار الأول",
+                image: "images/NAWARA.jpg",  
+                desc: "نبض الحياة والواقع الملموس وسط عواصف الخيال الملحمي."
+            },
+            {
+                id: 5,
+                title: "وسن",
+                artist: "عالم الروح",
+                category: "digital",
+                price: "الإصدار الخاص",
+                image: "images/WASN.jpeg",  
+                desc: "أحلام اليقظة والحد الفاصل بين النوم واليقظة المطلقة."
             }
         ];
 
         const exhibitionsData = [
             {
-                title: "معرض الأفق الذهبي",
-                date: "15 نوفمبر 2026",
-                image: "images/exhibition1.jpg", 
-                desc: "تجمع حصري لأبرز الفنانين المعاصرين لعرض أعمال مستوحاة من العصر الذهبي."
+                title: "الجزء الأول: عرش الزجاج والسراب",
+                date: "قريباً في صالات النشر 2026",
+                image: "images/1.jpg",  
+                desc: "بداية الرحلة حيث يكتشف البطل الشطح إلى العالم الموازي بين أوراق الشجر القديمة."
             },
             {
-                title: "ملتقى النحت المعاصر",
-                date: "02 ديسمبر 2026",
-                image: "images/exhibition2.jpg", 
-                desc: "استعراض لأجمل الأعمال ثلاثية الأبعاد المصنوعة من البرونز والرخام النادر."
+                title: "الجزء الثاني: نبيذ القمر",
+                date: "قريباً",
+                image: "images/2.jpg",  
+                desc: "توغل أعمق في تفاصيل الفنتازيا العالية والمشاعر المرتبطة بعوالم البرزخ."
+            },
+            {
+                title: "الجزء الثالث: صداء الذاكرة",
+                date: "قريباً",
+                image: "images/3.jpg",  
+                desc: "الملحمة الكبرى وختام الثلاثية العابرة للأعصار والأزمنة."
             }
         ];
 
