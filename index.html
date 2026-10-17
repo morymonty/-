@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -21,10 +21,8 @@
             --text-muted: #a0a0ab;
             --border-gold: rgba(212, 175, 55, 0.3);
             --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            --font-ar-title: 'Amiri', serif;
-            --font-ar-body: 'Tajawal', sans-serif;
-            --font-en-title: 'Cinzel', serif;
-            --font-en-body: 'Montserrat', sans-serif;
+            --font-title: 'Amiri', serif;
+            --font-body: 'Tajawal', sans-serif;
         }
 
         * {
@@ -36,23 +34,15 @@
         body {
             background-color: var(--bg-primary);
             color: var(--text-light);
-            font-family: var(--font-ar-body);
+            font-family: var(--font-body);
             overflow-x: hidden;
             line-height: 1.7;
         }
 
-        html[dir="ltr"] body {
-            font-family: var(--font-en-body);
-        }
-
         /* Typography */
         h1, h2, h3, h4, .art-title {
-            font-family: var(--font-ar-title);
+            font-family: var(--font-title);
             letter-spacing: 0.5px;
-        }
-        html[dir="ltr"] h1, html[dir="ltr"] h2, html[dir="ltr"] h3, html[dir="ltr"] h4, html[dir="ltr"] .art-title {
-            font-family: var(--font-en-title);
-            letter-spacing: 1px;
         }
 
         /* Ambient Background Effect */
@@ -339,8 +329,6 @@
 
         .slider-btn.prev { right: 20px; }
         .slider-btn.next { left: 20px; }
-        html[dir="ltr"] .slider-btn.prev { left: 20px; right: auto; }
-        html[dir="ltr"] .slider-btn.next { right: 20px; left: auto; }
 
         /* Gallery Grid Page */
         .gallery-controls {
@@ -415,6 +403,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
             opacity: 0;
             transition: var(--transition-smooth);
         }
@@ -501,10 +490,6 @@
             font-size: 1.8rem;
             cursor: pointer;
             z-index: 10;
-        }
-        html[dir="ltr"] .close-modal {
-            right: 15px;
-            left: auto;
         }
 
         /* Exhibitions Page */
@@ -611,30 +596,19 @@
             position: fixed;
             top: 0;
             bottom: 0;
+            left: 0;
             width: 380px;
             background: var(--bg-secondary);
-            border-left: 1px solid var(--border-gold);
+            border-right: 1px solid var(--border-gold);
             z-index: 1500;
             padding: 2rem;
-            transform: translateX(100%);
-            transition: transform 0.4s ease;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.8);
-        }
-
-        html[dir="ltr"] .drawer {
-            right: 0;
-            border-left: none;
-            border-right: 1px solid var(--border-gold);
-            transform: translateX(100%);
-        }
-
-        html[dir="rtl"] .drawer {
-            left: 0;
             transform: translateX(-100%);
+            transition: transform 0.4s ease;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.8);
         }
 
         .drawer.active {
-            transform: translateX(0) !important;
+            transform: translateX(0);
         }
 
         .drawer-header {
@@ -668,21 +642,18 @@
             <span>AURA</span>
         </a>
         <ul class="nav-links">
-            <li><a class="nav-link active" onclick="switchPage('home')" data-key="nav-home">الرئيسية</a></li>
-            <li><a class="nav-link" onclick="switchPage('gallery')" data-key="nav-gallery">الصور</a></li>
-            <li><a class="nav-link" onclick="switchPage('exhibitions')" data-key="nav-exhibitions">مشاهد من الرواية</a></li>
-            <li><a class="nav-link" onclick="switchPage('about')" data-key="nav-about">عن الرواية</a></li>
-            <li><a class="nav-link" onclick="switchPage('contact')" data-key="nav-contact">تواصل معنا</a></li>
+            <li><a class="nav-link active" onclick="switchPage('home')">الرئيسية</a></li>
+            <li><a class="nav-link" onclick="switchPage('gallery')">المعرض</a></li>
+            <li><a class="nav-link" onclick="switchPage('exhibitions')">المعارض والقاعات</a></li>
+            <li><a class="nav-link" onclick="switchPage('about')">عن أورا</a></li>
+            <li><a class="nav-link" onclick="switchPage('contact')">تواصل معنا</a></li>
         </ul>
         <div class="header-actions">
             <button class="icon-btn" id="audioToggleBtn" onclick="toggleAudio()">
-                <span id="audioIcon">🎵</span> <span data-key="audio-btn">الموسيقى</span>
+                <span id="audioIcon">🎵</span> <span>الموسيقى</span>
             </button>
             <button class="icon-btn" onclick="toggleFavDrawer()">
                 ❤️ <span id="favCount">0</span>
-            </button>
-            <button class="icon-btn" onclick="toggleLanguage()" id="langBtn">
-                English
             </button>
         </div>
     </header>
@@ -692,18 +663,17 @@
         <div class="hero">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-               <h1 class="hero-title" data-key="hero-title">ظل الشجرة (شطح الى عالم موازى) </h1>
-                <p class="hero-subtitle" data-key="hero-subtitle">ثلاثية روائية نسجت خيوطها بين واقعٍ يخلب العقول، ورومانسيةٍ تشدو للوجدان، وفنتازيا تحلّق في آفاق الخيال.. صُممت صياغتها لتخاطب ذائقة النخبة. </p>
-                <button class="cta-btn" onclick="switchPage('gallery')" data-key="hero-cta">استكشف المشاهد</button>
-
+                <h1 class="hero-title">حيث تلتقي الفخامة بإبداع الفن المعاصر</h1>
+                <p class="hero-subtitle">مجموعة صُممت لنخبة مقتني الفنون والأعمال الفريدة عالمياً</p>
+                <button class="cta-btn" onclick="switchPage('gallery')">استكشف المجموعة الحصرية</button>
             </div>
         </div>
 
         <!-- Masterpiece Slider -->
         <div class="featured-slider">
             <div class="section-header">
-                <h2 class="section-title" data-key="featured-title">المشاهد المختارة</h2>
-                <p class="section-subtitle" data-key="featured-subtitle">«مزيجٌ استثنائي بين الواقع الغرائبي، وعمق العاطفة، وسحر الفنتازيا.. صِيغ ببيانٍ رصين ليتوج ذائقة القراء الخواصة</p>
+                <h2 class="section-title">تحف الشهر المختارة</h2>
+                <p class="section-subtitle">أعمال حصرية معروضة لأول مرة</p>
             </div>
             <div class="slider-container">
                 <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
@@ -718,15 +688,15 @@
     <!-- Page 2: Gallery -->
     <section id="page-gallery" class="page">
         <div class="section-header">
-            <h2 class="section-title" data-key="gallery-title">معرض الأعمال الفنية</h2>
-            <p class="section-subtitle" data-key="gallery-subtitle">تصفح الأعمال بحسب الفئة أو النمط الفني</p>
+            <h2 class="section-title">معرض الأعمال الفنية</h2>
+            <p class="section-subtitle">تصفح الأعمال بحسب الفئة أو النمط الفني</p>
         </div>
 
         <div class="gallery-controls">
-            <button class="filter-btn active" onclick="filterGallery('all')" data-key="filter-all">الكل</button>
-            <button class="filter-btn" onclick="filterGallery('paintings')" data-key="filter-paintings">لوحات زيتية</button>
-            <button class="filter-btn" onclick="filterGallery('sculptures')" data-key="filter-sculptures">منحوتات</button>
-            <button class="filter-btn" onclick="filterGallery('digital')" data-key="filter-digital">فن رقمي</button>
+            <button class="filter-btn active" onclick="filterGallery('all')">الكل</button>
+            <button class="filter-btn" onclick="filterGallery('paintings')">لوحات زيتية</button>
+            <button class="filter-btn" onclick="filterGallery('sculptures')">منحوتات</button>
+            <button class="filter-btn" onclick="filterGallery('digital')">فن رقمي</button>
         </div>
 
         <div class="gallery-grid" id="galleryGrid">
@@ -737,8 +707,8 @@
     <!-- Page 3: Exhibitions -->
     <section id="page-exhibitions" class="page">
         <div class="section-header">
-            <h2 class="section-title" data-key="exhibitions-title">المعارض القادمة والفعاليات</h2>
-            <p class="section-subtitle" data-key="exhibitions-subtitle">انضم إلينا في أمسيات فنية خاصة وحصرية</p>
+            <h2 class="section-title">المعارض القادمة والفعاليات</h2>
+            <p class="section-subtitle">انضم إلينا في أمسيات فنية خاصة وحصرية</p>
         </div>
         <div class="exhibitions-list" id="exhibitionsList">
             <!-- Dynamic Exhibitions -->
@@ -748,46 +718,46 @@
     <!-- Page 4: About -->
     <section id="page-about" class="page">
         <div class="section-header">
-            <h2 class="section-title" data-key="about-title">عن جاليري أورا</h2>
-            <p class="section-subtitle" data-key="about-subtitle">قصتنا في رعاية الفن الأصيل والسريالي</p>
+            <h2 class="section-title">عن جاليري أورا</h2>
+            <p class="section-subtitle">قصتنا في رعاية الفن الأصيل والسريالي</p>
         </div>
         <div style="max-width: 800px; margin: 0 auto; padding: 0 4% 5rem; text-align: center; color: var(--text-muted); line-height: 2;">
-            <p data-key="about-text-1">تأسس جاليري AURA ليكون ملاذاً لعشاق الفن الراقي والأعمال التي تتجاوز حدود الزمن. نجمع بين أصالة الشرق وعصرنة الغرب، لنقدم تحفاً فنية تنبض بالحياة وتضفي رونقاً استثنائياً على المساحات الفاخرة.</p>
+            <p>تأسس جاليري AURA ليكون ملاذاً لعشاق الفن الراقي والأعمال التي تتجاوز حدود الزمن. نجمع بين أصالة الشرق وعصرنة الغرب، لنقدم تحفاً فنية تنبض بالحياة وتضفي رونقاً استثنائياً على المساحات الفاخرة.</p>
             <br>
-            <p data-key="about-text-2">يعمل فريقنا مع كبار الفنانين المستقلين والمؤسسات الفنية العالمية لضمان موثوقية كل قطعة، وتوفير تجربة اقتناء مخصصة للمستثمرين ومقتني التحف.</p>
+            <p>يعمل فريقنا مع كبار الفنانين المستقلين والمؤسسات الفنية العالمية لضمان موثوقية كل قطعة، وتوفير تجربة اقتناء مخصصة للمستثمرين ومقتني التحف.</p>
         </div>
     </section>
 
     <!-- Page 5: Contact -->
     <section id="page-contact" class="page">
         <div class="section-header">
-            <h2 class="section-title" data-key="contact-title">تواصل معنا</h2>
-            <p class="section-subtitle" data-key="contact-subtitle">لحجز المواعيد الخاصة أو الاستفسار عن اقتناء الأعمال</p>
+            <h2 class="section-title">تواصل معنا</h2>
+            <p class="section-subtitle">لحجز المواعيد الخاصة أو الاستفسار عن اقتناء الأعمال</p>
         </div>
         <div class="contact-container">
             <form class="contact-form" onsubmit="handleContact(event)">
                 <div class="form-group">
-                    <label data-key="label-name">الاسم الكامل</label>
+                    <label>الاسم الكامل</label>
                     <input type="text" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label data-key="label-email">البريد الإلكتروني</label>
+                    <label>البريد الإلكتروني</label>
                     <input type="email" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label data-key="label-message">الرسالة</label>
+                    <label>الرسالة</label>
                     <textarea class="form-control" required></textarea>
                 </div>
-                <button type="submit" class="cta-btn" data-key="btn-send">إرسال الرسالة</button>
+                <button type="submit" class="cta-btn">إرسال الرسالة</button>
             </form>
             <div style="display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;">
                 <div>
-                    <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;" data-key="location-title">المقر الرئيسي</h3>
-                    <p style="color: var(--text-muted);" data-key="location-address">حي الفنون الثقافي، الجناح الملكي 402</p>
+                    <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">المقر الرئيسي</h3>
+                    <p style="color: var(--text-muted);">حي الفنون الثقافي، الجناح الملكي 402</p>
                 </div>
                 <div>
-                    <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;" data-key="hours-title">ساعات الاستقبال</h3>
-                    <p style="color: var(--text-muted);" data-key="hours-time">يومياً من 4:00 مساءً حتى 11:00 مساءً (بحجز مسبق)</p>
+                    <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">ساعات الاستقبال</h3>
+                    <p style="color: var(--text-muted);">يومياً من 4:00 مساءً حتى 11:00 مساءً (بحجز مسبق)</p>
                 </div>
             </div>
         </div>
@@ -806,7 +776,7 @@
                 </div>
                 <div>
                     <div id="modalPrice" class="art-price" style="font-size: 1.5rem; margin-bottom: 1rem;"></div>
-                    <button class="cta-btn" style="width: 100%;" onclick="alert('تم إرسال طلب الاقتناء، سيتواصل معك مستشار الفنون لدينا.')" data-key="btn-acquire">طلب اقتناء هذه القطعة</button>
+                    <button class="cta-btn" style="width: 100%;" onclick="alert('تم إرسال طلب الاقتناء، سيتواصل معك مستشار الفنون لدينا.')">طلب اقتناء هذه القطعة</button>
                 </div>
             </div>
         </div>
@@ -815,7 +785,7 @@
     <!-- Favorites Drawer -->
     <div class="drawer" id="favDrawer">
         <div class="drawer-header">
-            <h3 style="color: var(--accent-gold);" data-key="fav-title">الأعمال المفضلة</h3>
+            <h3 style="color: var(--accent-gold);">الأعمال المفضلة</h3>
             <button class="close-modal" style="position: static;" onclick="toggleFavDrawer()">✕</button>
         </div>
         <div id="favList" style="display: flex; flex-direction: column; gap: 1rem;">
@@ -826,150 +796,69 @@
     <!-- Footer -->
     <footer>
         <div class="footer-logo">AURA ART GALLERY</div>
-        <p>&copy; 2026 AURA Fine Art Studio. All rights reserved.</p>
+        <p>&copy; 2026 AURA Fine Art Studio. جميع الحقوق محفوظة.</p>
     </footer>
 
     <script>
-        // Data Store
         const artData = [
             {
                 id: 1,
-                title: { ar: "همسات السراب", en: "Whispers of Mirage" },
-                artist: { ar: "د. ألكسندر فاروق", en: "Dr. Alexander Farouk" },
+                title: "همسات السراب",
+                artist: "د. ألكسندر فاروق",
                 category: "paintings",
                 price: "$14,500",
                 image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80",
-                desc: { ar: «أعمالٌ روائية تتجاوز حدود المألوف؛ حيث يتمازج الذهول بالحب والأسطورة، في صياغةٍ أدبية رفيعة لا تقتنيها إلا الذوائق الاستثنائية.».", en: "An exceptional oil masterpiece depicting the interplay between memory and time with deep gold accents." }
+                desc: "عمل زيتي استثنائي يتناول التداخل بين الذاكرة والوقت بألوان ذهبية وداكنة عميقة."
             },
             {
                 id: 2,
-                title: { ar: "خلود الذهبي", en: "Golden Eternity" },
-                artist: { ar: "سارة الفليج", en: "Sarah Al-Falij" },
+                title: "خلود الذهبي",
+                artist: "سارة الفليج",
                 category: "sculptures",
                 price: "$28,000",
                 image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1000&q=80",
-                desc: { ar: "منحوتة برونزية مطعمة بأوراق الذهب الخالص تعبر عن الشغف والأناقة المستمرة.", en: "A bronze sculpture inlaid with pure gold leaf expressing enduring passion and elegance." }
+                desc: "منحوتة برونزية مطعمة بأوراق الذهب الخالص تعبر عن الشغف والأناقة المستمرة."
             },
             {
                 id: 3,
-                title: { ar: "أبعاد سريالية", en: "Surreal Dimensions" },
-                artist: { ar: "ماركوس راين", en: "Marcus Rein" },
+                title: "أبعاد سريالية",
+                artist: "ماركوس راين",
                 category: "digital",
                 price: "$9,200",
                 image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1000&q=80",
-                desc: { ar: "فن رقمي فريد مطبوع بقماش كانفاس متحف يجمع بين الضوء والظلال المستقبليتين.", en: "Unique digital art printed on museum-grade canvas combining futuristic light and shadows." }
+                desc: "فن رقمي فريد مطبوع بقماش كانفاس متحف يجمع بين الضوء والظلال المستقبليتين."
             },
             {
                 id: 4,
-                title: { ar: "سيمفونية الصحراء", en: "Symphony of Dunes" },
-                artist: { ar: "نورة الجابر", en: "Noura Al-Jaber" },
+                title: "سيمفونية الصحراء",
+                artist: "نورة الجابر",
                 category: "paintings",
                 price: "$18,000",
                 image: "https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=1000&q=80",
-                desc: { ar: "لوحة تعبر عن انسيابية الرمال العربية تحت أضواء النجوم الخافتة.", en: "A canvas capturing the fluid motion of Arabian dunes under starlight." }
+                desc: "لوحة تعبر عن انسيابية الرمال العربية تحت أضواء النجوم الخافتة."
             }
         ];
 
         const exhibitionsData = [
             {
-                title: { ar: "معرض الأفق الذهبي", en: "Golden Horizon Expo" },
-                date: { ar: "15 نوفمبر 2026", en: "November 15, 2026" },
+                title: "معرض الأفق الذهبي",
+                date: "15 نوفمبر 2026",
                 image: "https://images.unsplash.com/photo-1531243269054-5ebf6f34081e?auto=format&fit=crop&w=800&q=80",
-                desc: { ar: "تجمع حصري لأبرز الفنانين المعاصرين لعرض أعمال مستوحاة من العصر الذهبي.", en: "An exclusive gathering of contemporary artists showcasing works inspired by the golden era." }
+                desc: "تجمع حصري لأبرز الفنانين المعاصرين لعرض أعمال مستوحاة من العصر الذهبي."
             },
             {
-                title: { ar: "ملتقى النحت المعاصر", en: "Contemporary Sculpture Forum" },
-                date: { ar: "02 ديسمبر 2026", en: "December 02, 2026" },
+                title: "ملتقى النحت المعاصر",
+                date: "02 ديسمبر 2026",
                 image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?auto=format&fit=crop&w=800&q=80",
-                desc: { ar: "استعراض لأجمل الأعمال ثلاثية الأبعاد المصنوعة من البرونز والرخام النادر.", en: "Exhibition of 3D bronze and rare marble masterpieces." }
+                desc: "استعراض لأجمل الأعمال ثلاثية الأبعاد المصنوعة من البرونز والرخام النادر."
             }
         ];
 
-        const translations = {
-            ar: {
-                "nav-home": "الرئيسية",
-                "nav-gallery": "المعرض",
-                "nav-exhibitions": "المعارض والقاعات",
-                "nav-about": "عن أورا",
-                "nav-contact": "تواصل معنا",
-                "audio-btn": "الموسيقى",
-                "hero-title": "حيث تلتقي الفخامة بإبداع الفن المعاصر",
-                "hero-subtitle": "مجموعة صُممت لنخبة مقتني الفنون والأعمال الفريدة عالمياً",
-                "hero-cta": "استكشف المجموعة الحصرية",
-                "featured-title": "تحف الشهر المختارة",
-                "featured-subtitle": "أعمال حصرية معروضة لأول مرة",
-                "gallery-title": "معرض الأعمال الفنية",
-                "gallery-subtitle": "تصفح الأعمال بحسب الفئة أو النمط الفني",
-                "filter-all": "الكل",
-                "filter-paintings": "لوحات زيتية",
-                "filter-sculptures": "منحوتات",
-                "filter-digital": "فن رقمي",
-                "exhibitions-title": "المعارض القادمة والفعاليات",
-                "exhibitions-subtitle": "انضم إلينا في أمسيات فنية خاصة وحصرية",
-                "about-title": "عن جاليري أورا",
-                "about-subtitle": "قصتنا في رعاية الفن الأصيل والسريالي",
-                "about-text-1": "تأسس جاليري AURA ليكون ملاذاً لعشاق الفن الراقي والأعمال التي تتجاوز حدود الزمن. نجمع بين أصالة الشرق وعصرنة الغرب، لنقدم تحفاً فنية تنبض بالحياة وتضفي رونقاً استثنائياً على المساحات الفاخرة.",
-                "about-text-2": "يعمل فريقنا مع كبار الفنانين المستقلين والمؤسسات الفنية العالمية لضمان موثوقية كل قطعة، وتوفير تجربة اقتناء مخصصة للمستثمرين ومقتني التحف.",
-                "contact-title": "تواصل معنا",
-                "contact-subtitle": "لحجز المواعيد الخاصة أو الاستفسار عن اقتناء الأعمال",
-                "label-name": "الاسم الكامل",
-                "label-email": "البريد الإلكتروني",
-                "label-message": "الرسالة",
-                "btn-send": "إرسال الرسالة",
-                "location-title": "المقر الرئيسي",
-                "location-address": "حي الفنون الثقافي، الجناح الملكي 402",
-                "hours-title": "ساعات الاستقبال",
-                "hours-time": "يومياً من 4:00 مساءً حتى 11:00 مساءً (بحجز مسبق)",
-                "btn-acquire": "طلب اقتناء هذه القطعة",
-                "fav-title": "الأعمال المفضلة"
-            },
-            en: {
-                "nav-home": "Home",
-                "nav-gallery": "Gallery",
-                "nav-exhibitions": "Exhibitions",
-                "nav-about": "About AURA",
-                "nav-contact": "Contact",
-                "audio-btn": "Ambient Sound",
-                "hero-title": "Where Luxury Meets Contemporary Artistry",
-                "hero-subtitle": "Curated for distinguished art collectors worldwide",
-                "hero-cta": "Explore Collection",
-                "featured-title": "Masterpieces of the Month",
-                "featured-subtitle": "Exclusive works presented for the first time",
-                "gallery-title": "Art Gallery",
-                "gallery-subtitle": "Browse by style and creative medium",
-                "filter-all": "All",
-                "filter-paintings": "Oil Paintings",
-                "filter-sculptures": "Sculptures",
-                "filter-digital": "Digital Art",
-                "exhibitions-title": "Upcoming Exhibitions",
-                "exhibitions-subtitle": "Join us for private high-society art galas",
-                "about-title": "About AURA Gallery",
-                "about-subtitle": "Our journey in nurturing authentic and surreal art",
-                "about-text-1": "AURA Gallery was established as a sanctuary for fine art enthusiasts and timeless pieces. We blend Eastern heritage with Western modernity to present living artworks that elevate luxury spaces.",
-                "about-text-2": "Our curators collaborate with leading artists and international art institutions to ensure provenance and provide tailored acquisition services.",
-                "contact-title": "Get in Touch",
-                "contact-subtitle": "For private viewings and acquisition inquiries",
-                "label-name": "Full Name",
-                "label-email": "Email Address",
-                "label-message": "Message",
-                "btn-send": "Send Inquiry",
-                "location-title": "Main Gallery",
-                "location-address": "Cultural Arts District, Royal Wing 402",
-                "hours-title": "Visiting Hours",
-                "hours-time": "Daily from 4:00 PM to 11:00 PM (By Appointment)",
-                "btn-acquire": "Request Acquisition",
-                "fav-title": "Favorite Works"
-            }
-        };
-
-        // Application State
-        let currentLang = 'ar';
         let favorites = [];
         let currentSlide = 0;
         let audioContext = null;
         let isAudioPlaying = false;
 
-        // SPA Navigation
         function switchPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
@@ -980,43 +869,19 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
-            // Update Active Link
             const activeNav = Array.from(document.querySelectorAll('.nav-link')).find(el => el.getAttribute('onclick').includes(pageId));
             if(activeNav) activeNav.classList.add('active');
         }
 
-        // Language Switcher
-        function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            document.documentElement.lang = currentLang;
-            document.getElementById('langBtn').innerText = currentLang === 'ar' ? 'English' : 'العربية';
-
-            // Update UI Strings
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (translations[currentLang][key]) {
-                    el.innerText = translations[currentLang][key];
-                }
-            });
-
-            // Re-render dynamic elements
-            renderSlider();
-            renderGallery('all');
-            renderExhibitions();
-            renderFavorites();
-        }
-
-        // Render Slider
         function renderSlider() {
             const track = document.getElementById('sliderTrack');
             track.innerHTML = artData.map(item => `
                 <div class="slide">
-                    <img src="${item.image}" alt="${item.title[currentLang]}">
+                    <img src="${item.image}" alt="${item.title}">
                     <div class="slide-info">
-                        <h3 class="slide-title">${item.title[currentLang]}</h3>
-                        <p class="slide-artist">${item.artist[currentLang]}</p>
-                        <button class="cta-btn" onclick="openModal(${item.id})">${translations[currentLang]['hero-cta']}</button>
+                        <h3 class="slide-title">${item.title}</h3>
+                        <p class="slide-artist">${item.artist}</p>
+                        <button class="cta-btn" onclick="openModal(${item.id})">استكشف القطعة</button>
                     </div>
                 </div>
             `).join('');
@@ -1026,10 +891,9 @@
             const track = document.getElementById('sliderTrack');
             const total = artData.length;
             currentSlide = (currentSlide + dir + total) % total;
-            track.style.transform = `translateX(${currentSlide * (document.documentElement.dir === 'rtl' ? 100 : -100)}%)`;
+            track.style.transform = `translateX(${currentSlide * 100}%)`;
         }
 
-        // Gallery Filter & Render
         function renderGallery(filter = 'all') {
             const grid = document.getElementById('galleryGrid');
             const items = filter === 'all' ? artData : artData.filter(i => i.category === filter);
@@ -1037,15 +901,15 @@
             grid.innerHTML = items.map(item => `
                 <div class="art-card">
                     <div class="art-img-wrap">
-                        <img src="${item.image}" alt="${item.title[currentLang]}">
+                        <img src="${item.image}" alt="${item.title}">
                         <div class="art-overlay">
                             <button class="icon-btn" onclick="openModal(${item.id})">🔍</button>
                             <button class="icon-btn" onclick="toggleFavorite(${item.id})">${favorites.includes(item.id) ? '❤️' : '🤍'}</button>
                         </div>
                     </div>
                     <div class="art-details">
-                        <h3 class="art-title">${item.title[currentLang]}</h3>
-                        <p style="color: var(--text-muted); font-size: 0.85rem;">${item.artist[currentLang]}</p>
+                        <h3 class="art-title">${item.title}</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">${item.artist}</p>
                         <div class="art-meta">
                             <span class="art-price">${item.price}</span>
                         </div>
@@ -1060,16 +924,15 @@
             renderGallery(category);
         }
 
-        // Exhibitions Render
         function renderExhibitions() {
             const list = document.getElementById('exhibitionsList');
             list.innerHTML = exhibitionsData.map(ex => `
                 <div class="exhibition-card">
-                    <img class="exhibition-img" src="${ex.image}" alt="${ex.title[currentLang]}">
+                    <img class="exhibition-img" src="${ex.image}" alt="${ex.title}">
                     <div class="exhibition-info">
-                        <div class="exhibition-date">📅 ${ex.date[currentLang]}</div>
-                        <h3 class="art-title" style="font-size: 1.6rem; margin-bottom: 0.8rem;">${ex.title[currentLang]}</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">${ex.desc[currentLang]}</p>
+                        <div class="exhibition-date">📅 ${ex.date}</div>
+                        <h3 class="art-title" style="font-size: 1.6rem; margin-bottom: 0.8rem;">${ex.title}</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">${ex.desc}</p>
                         <div>
                             <button class="cta-btn" onclick="alert('تم تسجيل طلب الحضور، سنتواصل معكم قريباً.')">حجز بطاقة دعوة</button>
                         </div>
@@ -1078,15 +941,14 @@
             `).join('');
         }
 
-        // Modal Controls
         function openModal(id) {
             const item = artData.find(a => a.id === id);
             if(!item) return;
 
             document.getElementById('modalImg').src = item.image;
-            document.getElementById('modalTitle').innerText = item.title[currentLang];
-            document.getElementById('modalArtist').innerText = item.artist[currentLang];
-            document.getElementById('modalDesc').innerText = item.desc[currentLang];
+            document.getElementById('modalTitle').innerText = item.title;
+            document.getElementById('modalArtist').innerText = item.artist;
+            document.getElementById('modalDesc').innerText = item.desc;
             document.getElementById('modalPrice').innerText = item.price;
 
             document.getElementById('artModal').classList.add('active');
@@ -1096,7 +958,6 @@
             document.getElementById('artModal').classList.remove('active');
         }
 
-        // Favorites Drawer
         function toggleFavorite(id) {
             if(favorites.includes(id)) {
                 favorites = favorites.filter(f => f !== id);
@@ -1125,7 +986,7 @@
                 <div style="display: flex; gap: 1rem; align-items: center; background: var(--bg-primary); padding: 0.8rem; border-radius: 4px;">
                     <img src="${item.image}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 4px;">
                     <div style="flex: 1;">
-                        <h4 style="font-size: 0.95rem;">${item.title[currentLang]}</h4>
+                        <h4 style="font-size: 0.95rem;">${item.title}</h4>
                         <p style="color: var(--accent-gold); font-size: 0.85rem;">${item.price}</p>
                     </div>
                     <button onclick="toggleFavorite(${item.id})" style="background: none; border: none; color: #ff4d4d; cursor: pointer;">✕</button>
@@ -1133,14 +994,12 @@
             `).join('');
         }
 
-        // Contact Form
         function handleContact(e) {
             e.preventDefault();
-            alert(currentLang === 'ar' ? 'شكراً لتواصلك معنا. تم استقبال رسالتك بنجاح.' : 'Thank you for reaching out. Your message has been received.');
+            alert('شكراً لتواصلك معنا. تم استقبال رسالتك بنجاح.');
             e.target.reset();
         }
 
-        // Web Audio Ambient Synthesizer
         function toggleAudio() {
             if (!audioContext) {
                 audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -1163,7 +1022,7 @@
             const gain = audioContext.createGain();
             
             osc.type = 'sine';
-            osc.frequency.setValueAtTime(110, audioContext.currentTime); // Soft A2 note
+            osc.frequency.setValueAtTime(110, audioContext.currentTime);
             
             gain.gain.setValueAtTime(0.01, audioContext.currentTime);
             gain.gain.exponentialRampToValueAtTime(0.08, audioContext.currentTime + 3);
@@ -1173,7 +1032,6 @@
             osc.start();
         }
 
-        // Initialization
         window.onload = () => {
             renderSlider();
             renderGallery();
