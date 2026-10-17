@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA | المعرض الفني الفاخر</title>
+    <title>ظل الشجرة | الصور النابضة</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -645,13 +645,13 @@
     <header>
         <a href="#" class="logo" onclick="switchPage('home')">
             <div class="logo-mark">A</div>
-            <span>AURA</span>
+            <span>ظل الشجرة</span>
         </a>
         <ul class="nav-links">
             <li><a class="nav-link active" onclick="switchPage('home')">الرئيسية</a></li>
-            <li><a class="nav-link" onclick="switchPage('gallery')">المعرض</a></li>
-            <li><a class="nav-link" onclick="switchPage('exhibitions')">المعارض والقاعات</a></li>
-            <li><a class="nav-link" onclick="switchPage('about')">عن أورا</a></li>
+            <li><a class="nav-link" onclick="switchPage('gallery')">الصور</a></li>
+            <li><a class="nav-link" onclick="switchPage('exhibitions')">مشاهد من الرواية </a></li>
+            <li><a class="nav-link" onclick="switchPage('about')">عن ظل الشجرةا</a></li>
             <li><a class="nav-link" onclick="switchPage('contact')">تواصل معنا</a></li>
         </ul>
         <div class="header-actions">
@@ -666,17 +666,17 @@
         <div class="hero">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1 class="hero-title">حيث تلتقي الفخامة بإبداع الفن المعاصر</h1>
-                <p class="hero-subtitle">مجموعة صُممت لنخبة مقتني الفنون والأعمال الفريدة عالمياً</p>
-                <button class="cta-btn" onclick="switchPage('gallery')">استكشف المجموعة الحصرية</button>
+                <h1 class="hero-title">  </h1>
+              <p class="hero-subtitle">«ثلاثية روائية نسجت خيوطها بين واقعٍ يخلب العقول، ورومانسيةٍ تشدو للوجدان، وفنتازيا تحلّق في آفاق الخيال.. صُممت صياغتها لتخاطب ذائقة النخبة.»</p>
+                <button class="cta-btn" onclick="switchPage('gallery')">استكشف المشاهد</button>
             </div>
         </div>
 
         <!-- Masterpiece Slider -->
         <div class="featured-slider">
             <div class="section-header">
-                <h2 class="section-title">تحف الشهر المختارة</h2>
-                <p class="section-subtitle">أعمال حصرية معروضة لأول مرة</p>
+                <h2 class="section-title">شخصيات مؤثرة</h2>
+                <p class="section-subtitle">نبض من قلب الرواية </p>
             </div>
             <div class="slider-container">
                 <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
@@ -691,15 +691,15 @@
     <!-- Page 2: Gallery -->
     <section id="page-gallery" class="page">
         <div class="section-header">
-            <h2 class="section-title">معرض الأعمال الفنية</h2>
-            <p class="section-subtitle">تصفح الأعمال بحسب الفئة أو النمط الفني</p>
+            <h2 class="section-title">نبذة من فصول الرواية </h2>
+            <p class="section-subtitle">تصفح دور الشخصيات</p>
         </div>
 
         <div class="gallery-controls">
             <button class="filter-btn active" onclick="filterGallery('all')">الكل</button>
-            <button class="filter-btn" onclick="filterGallery('paintings')">لوحات زيتية</button>
-            <button class="filter-btn" onclick="filterGallery('sculptures')">منحوتات</button>
-            <button class="filter-btn" onclick="filterGallery('digital')">فن رقمي</button>
+            <button class="filter-btn" onclick="filterGallery('paintings')">شخصيات عالم الواقع</button>
+            <button class="filter-btn" onclick="filterGallery('sculptures')">شخصيات عالم البرزخ</button>
+            <button class="filter-btn" onclick="filterGallery('digital')">شخصيات من عالم الروح </button>
         </div>
 
         <div class="gallery-grid" id="galleryGrid">
@@ -710,8 +710,7 @@
     <!-- Page 3: Exhibitions -->
     <section id="page-exhibitions" class="page">
         <div class="section-header">
-            <h2 class="section-title">المعارض القادمة والفعاليات</h2>
-            <p class="section-subtitle">انضم إلينا في أمسيات فنية خاصة وحصرية</p>
+            <h2 class="section-title">الأجزاء القادمة </h2>
         </div>
         <div class="exhibitions-list" id="exhibitionsList">
             <!-- Dynamic Exhibitions -->
@@ -721,13 +720,13 @@
     <!-- Page 4: About -->
     <section id="page-about" class="page">
         <div class="section-header">
-            <h2 class="section-title">عن جاليري أورا</h2>
-            <p class="section-subtitle">قصتنا في رعاية الفن الأصيل والسريالي</p>
+            <h2 class="section-title">عن ظل الشجرةا</h2>
+            <p class="section-subtitle">رواية تجمع بين الرومانسية الشغوفة والخيال الساحر</p>
         </div>
         <div style="max-width: 800px; margin: 0 auto; padding: 0 4% 5rem; text-align: center; color: var(--text-muted); line-height: 2;">
-            <p>تأسس جاليري AURA ليكون ملاذاً لعشاق الفن الراقي والأعمال التي تتجاوز حدود الزمن. نجمع بين أصالة الشرق وعصرنة الغرب، لنقدم تحفاً فنية تنبض بالحياة وتضفي رونقاً استثنائياً على المساحات الفاخرة.</p>
+            <p>«أعمالٌ روائية تتجاوز حدود المألوف؛ حيث يتمازج الذهول بالحب والأسطورة، في صياغةٍ أدبية رفيعة لا تقتنيها إلا الذوائق الاستثنائية.»</p>
             <br>
-            <p>يعمل فريقنا مع كبار الفنانين المستقلين والمؤسسات الفنية العالمية لضمان موثوقية كل قطعة، وتوفير تجربة اقتناء مخصصة للمستثمرين ومقتني التحف.</p>
+            <p> ي«مجموعة روائية تجمع بين غرابة الواقع، وسحر الرومانسية، وجنون الخيال.. صِيغت بحرفيةٍ أدبية عالية لتليق بالنخبة من عشاق الأدب الرفيع.»</p>
         </div>
     </section>
 
@@ -735,7 +734,7 @@
     <section id="page-contact" class="page">
         <div class="section-header">
             <h2 class="section-title">تواصل معنا</h2>
-            <p class="section-subtitle">لحجز المواعيد الخاصة أو الاستفسار عن اقتناء الأعمال</p>
+            <p class="section-subtitle">للحجزواقتناء المجموعة</p>
         </div>
         <div class="contact-container">
             <form class="contact-form" onsubmit="handleContact(event)">
@@ -756,10 +755,10 @@
             <div style="display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;">
                 <div>
                     <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">المقر الرئيسي</h3>
-                    <p style="color: var(--text-muted);">حي الفنون الثقافي، الجناح الملكي 402</p>
+                    <p style="color: var(--text-muted);">مصر - القاهرة</p>
                 </div>
                 <div>
-                    <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">ساعات الاستقبال</h3>
+                    <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">ساعات الدردشة</h3>
                     <p style="color: var(--text-muted);">يومياً من 4:00 مساءً حتى 11:00 مساءً (بحجز مسبق)</p>
                 </div>
             </div>
@@ -779,7 +778,7 @@
                 </div>
                 <div>
                     <div id="modalPrice" class="art-price" style="font-size: 1.5rem; margin-bottom: 1rem;"></div>
-                    <button class="cta-btn" style="width: 100%;" onclick="alert('تم إرسال طلب الاقتناء، سيتواصل معك مستشار الفنون لدينا.')">طلب اقتناء هذه القطعة</button>
+                    <button class="cta-btn" style="width: 100%;" onclick="alert('تم إرسال طلب الاقتناء، سيتواصل معك البائعين لدينا.')">طلب اقتناء هذه القطعة</button>
                 </div>
             </div>
         </div>
@@ -798,8 +797,8 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-logo">AURA ART GALLERY</div>
-        <p>&copy; 2026 AURA Fine Art Studio. جميع الحقوق محفوظة.</p>
+        <div class="footer-logo">ظل  الشجرة/div>
+        <p>&copy; الصفحة الرئيسية للرواية. جميع الحقوق محفوظة.</p>
     </footer>
 
     <script>
@@ -810,11 +809,9 @@
         const artData = [
             {
                 id: 1,
-                title: "همسات السراب",
-                artist: "د. ألكسندر فاروق",
+                title: "خالد",
                 category: "paintings",
-                price: "$14,500",
-                image: "images/art1.jpg", 
+                image: "images/KHALED.jpg", 
                 desc: "عمل زيتي استثنائي يتناول التداخل بين الذاكرة والوقت بألوان ذهبية وداكنة عميقة."
             },
             {
