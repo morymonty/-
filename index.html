@@ -804,9 +804,8 @@
             {
                 id: 1,
                 title: "خالد",
-                artist: "",
                 category: "paintings",
-                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80",
+                image: "KHALED. a3fb3927b675?auto=format&fit=crop&w=1000&q=80",
                 desc: "عمل زيتي استثنائي يتناول التداخل بين الذاكرة والوقت بألوان ذهبية وداكنة عميقة."
             },
             {
@@ -999,36 +998,6 @@
             e.target.reset();
         }
 
-        function toggleAudio() {
-            if (!audioContext) {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            }
-
-            if (isAudioPlaying) {
-                audioContext.suspend();
-                isAudioPlaying = false;
-                document.getElementById('audioIcon').innerText = '🎵';
-            } else {
-                audioContext.resume();
-                playAmbientSynth();
-                isAudioPlaying = true;
-                document.getElementById('audioIcon').innerText = '🔊';
-            }
-        }
-
-        function playAmbientSynth() {
-            const osc = audioContext.createOscillator();
-            const gain = audioContext.createGain();
-            
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(110, audioContext.currentTime);
-            
-            gain.gain.setValueAtTime(0.01, audioContext.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.08, audioContext.currentTime + 3);
-
-            osc.connect(gain);
-            gain.connect(audioContext.destination);
-            osc.start();
         }
 
         window.onload = () => {
