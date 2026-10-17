@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ظل الشجرة | الصور النابضة</title>
+    <title>AURA | Fine Art Gallery</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -21,8 +21,8 @@
             --text-muted: #a0a0ab;
             --border-gold: rgba(212, 175, 55, 0.3);
             --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            --font-title: 'Amiri', serif;
-            --font-body: 'Tajawal', sans-serif;
+            --font-title: 'Cinzel', serif;
+            --font-body: 'Montserrat', sans-serif;
         }
 
         * {
@@ -42,7 +42,7 @@
         /* Typography */
         h1, h2, h3, h4, .art-title {
             font-family: var(--font-title);
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         /* Ambient Background Effect */
@@ -182,8 +182,7 @@
             justify-content: center;
             text-align: center;
             padding: 0 2rem;
-            background: linear-gradient(to bottom, rgba(10,10,12,0.6), var(--bg-primary)), url(' images /KAVER.jpg') center/cover no-repeat;
-            background-color: var(--bg-secondary);
+            background: linear-gradient(to bottom, rgba(10,10,12,0.3), var(--bg-primary)), url('https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             position: relative;
         }
 
@@ -274,7 +273,6 @@
             position: relative;
             display: flex;
             align-items: flex-end;
-            background: var(--bg-tertiary);
         }
 
         .slide img {
@@ -329,8 +327,8 @@
             color: #000;
         }
 
-        .slider-btn.prev { right: 20px; }
-        .slider-btn.next { left: 20px; }
+        .slider-btn.prev { left: 20px; }
+        .slider-btn.next { right: 20px; }
 
         /* Gallery Grid Page */
         .gallery-controls {
@@ -385,7 +383,6 @@
             position: relative;
             height: 380px;
             overflow: hidden;
-            background: var(--bg-tertiary);
         }
 
         .art-img-wrap img {
@@ -474,7 +471,6 @@
             height: 100%;
             min-height: 400px;
             object-fit: cover;
-            background: var(--bg-tertiary);
         }
 
         .modal-body {
@@ -487,7 +483,7 @@
         .close-modal {
             position: absolute;
             top: 15px;
-            left: 15px;
+            right: 15px;
             background: transparent;
             border: none;
             color: var(--text-muted);
@@ -518,7 +514,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            background: var(--bg-tertiary);
         }
 
         .exhibition-info {
@@ -601,15 +596,15 @@
             position: fixed;
             top: 0;
             bottom: 0;
-            left: 0;
+            right: 0;
             width: 380px;
             background: var(--bg-secondary);
-            border-right: 1px solid var(--border-gold);
+            border-left: 1px solid var(--border-gold);
             z-index: 1500;
             padding: 2rem;
-            transform: translateX(-100%);
+            transform: translateX(100%);
             transition: transform 0.4s ease;
-            box-shadow: 10px 0 30px rgba(0,0,0,0.8);
+            box-shadow: -10px 0 30px rgba(0,0,0,0.8);
         }
 
         .drawer.active {
@@ -644,16 +639,19 @@
     <header>
         <a href="#" class="logo" onclick="switchPage('home')">
             <div class="logo-mark">A</div>
-            <span>ظل الشجرة</span>
+            <span>AURA</span>
         </a>
         <ul class="nav-links">
-            <li><a class="nav-link active" onclick="switchPage('home')">الرئيسية</a></li>
-            <li><a class="nav-link" onclick="switchPage('gallery')">الصور</a></li>
-            <li><a class="nav-link" onclick="switchPage('exhibitions')">مشاهد من الرواية</a></li>
-            <li><a class="nav-link" onclick="switchPage('about')">عن ظل الشجرة</a></li>
-            <li><a class="nav-link" onclick="switchPage('contact')">تواصل معنا</a></li>
+            <li><a class="nav-link active" onclick="switchPage('home')">Home</a></li>
+            <li><a class="nav-link" onclick="switchPage('gallery')">Gallery</a></li>
+            <li><a class="nav-link" onclick="switchPage('exhibitions')">Exhibitions</a></li>
+            <li><a class="nav-link" onclick="switchPage('about')">About AURA</a></li>
+            <li><a class="nav-link" onclick="switchPage('contact')">Contact</a></li>
         </ul>
         <div class="header-actions">
+            <button class="icon-btn" id="audioToggleBtn" onclick="toggleAudio()">
+                <span id="audioIcon">🎵</span> <span>Ambient Sound</span>
+            </button>
             <button class="icon-btn" onclick="toggleFavDrawer()">
                 ❤️ <span id="favCount">0</span>
             </button>
@@ -665,17 +663,17 @@
         <div class="hero">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-               <h1 class="hero-title">ظل الشجرة (شطح إلى عالم موازى)</h1>
-               <p class="hero-subtitle">«ثلاثية روائية نسجت خيوطها بين واقعٍ يخلب العقول، ورومانسيةٍ تشدو للوجدان، وفنتازيا تحلّق في آفاق الخيال.. صُممت صياغتها لتخاطب ذائقة النخبة.»</p>
-                <button class="cta-btn" onclick="switchPage('gallery')">استكشف المشاهد</button>
+                <h1 class="hero-title">Where Luxury Meets Contemporary Artistry</h1>
+                <p class="hero-subtitle">Curated for distinguished art collectors worldwide</p>
+                <button class="cta-btn" onclick="switchPage('gallery')">Explore Collection</button>
             </div>
         </div>
 
         <!-- Masterpiece Slider -->
         <div class="featured-slider">
             <div class="section-header">
-                <h2 class="section-title">شخصيات مؤثرة</h2>
-                <p class="section-subtitle">نبض من قلب الرواية</p>
+                <h2 class="section-title">Masterpieces of the Month</h2>
+                <p class="section-subtitle">Exclusive works presented for the first time</p>
             </div>
             <div class="slider-container">
                 <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
@@ -690,15 +688,15 @@
     <!-- Page 2: Gallery -->
     <section id="page-gallery" class="page">
         <div class="section-header">
-            <h2 class="section-title">نبذة من فصول الرواية</h2>
-            <p class="section-subtitle">تصفح دور الشخصيات</p>
+            <h2 class="section-title">Art Gallery</h2>
+            <p class="section-subtitle">Browse by style and creative medium</p>
         </div>
 
         <div class="gallery-controls">
-            <button class="filter-btn active" onclick="filterGallery('all')">الكل</button>
-            <button class="filter-btn" onclick="filterGallery('paintings')">شخصيات عالم الواقع</button>
-            <button class="filter-btn" onclick="filterGallery('sculptures')">شخصيات عالم البرزخ</button>
-            <button class="filter-btn" onclick="filterGallery('digital')">شخصيات من عالم الروح</button>
+            <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+            <button class="filter-btn" onclick="filterGallery('paintings')">Oil Paintings</button>
+            <button class="filter-btn" onclick="filterGallery('sculptures')">Sculptures</button>
+            <button class="filter-btn" onclick="filterGallery('digital')">Digital Art</button>
         </div>
 
         <div class="gallery-grid" id="galleryGrid">
@@ -709,7 +707,8 @@
     <!-- Page 3: Exhibitions -->
     <section id="page-exhibitions" class="page">
         <div class="section-header">
-            <h2 class="section-title">الأجزاء القادمة</h2>
+            <h2 class="section-title">Upcoming Exhibitions</h2>
+            <p class="section-subtitle">Join us for private high-society art galas</p>
         </div>
         <div class="exhibitions-list" id="exhibitionsList">
             <!-- Dynamic Exhibitions -->
@@ -719,46 +718,46 @@
     <!-- Page 4: About -->
     <section id="page-about" class="page">
         <div class="section-header">
-            <h2 class="section-title">عن ظل الشجرة</h2>
-            <p class="section-subtitle">رواية تجمع بين الرومانسية الشغوفة والخيال الساحر</p>
+            <h2 class="section-title">About AURA Gallery</h2>
+            <p class="section-subtitle">Our journey in nurturing authentic and surreal art</p>
         </div>
         <div style="max-width: 800px; margin: 0 auto; padding: 0 4% 5rem; text-align: center; color: var(--text-muted); line-height: 2;">
-            <p>«أعمالٌ روائية تتجاوز حدود المألوف؛ حيث يتمازج الذهول بالحب والأسطورة، في صياغةٍ أدبية رفيعة لا تقتنيها إلا الذوائق الاستثنائية.»</p>
+            <p>AURA Gallery was established as a sanctuary for fine art enthusiasts and timeless pieces. We blend Eastern heritage with Western modernity to present living artworks that elevate luxury spaces.</p>
             <br>
-            <p>«مجموعة روائية تجمع بين غرابة الواقع، وسحر الرومانسية، وجنون الخيال.. صِيغت بحرفيةٍ أدبية عالية لتليق بالنخبة من عشاق الأدب الرفيع.»</p>
+            <p>Our curators collaborate with leading artists and international art institutions to ensure provenance and provide tailored acquisition services.</p>
         </div>
     </section>
 
     <!-- Page 5: Contact -->
     <section id="page-contact" class="page">
         <div class="section-header">
-            <h2 class="section-title">تواصل معنا</h2>
-            <p class="section-subtitle">للحجز واقتناء المجموعة</p>
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">For private viewings and acquisition inquiries</p>
         </div>
         <div class="contact-container">
             <form class="contact-form" onsubmit="handleContact(event)">
                 <div class="form-group">
-                    <label>الاسم الكامل</label>
+                    <label>Full Name</label>
                     <input type="text" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label>البريد الإلكتروني</label>
+                    <label>Email Address</label>
                     <input type="email" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label>الرسالة</label>
+                    <label>Message</label>
                     <textarea class="form-control" required></textarea>
                 </div>
-                <button type="submit" class="cta-btn">إرسال الرسالة</button>
+                <button type="submit" class="cta-btn">Send Inquiry</button>
             </form>
             <div style="display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;">
                 <div>
-                    <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">المقر الرئيسي</h3>
-                    <p style="color: var(--text-muted);">مصر - القاهرة</p>
+                    <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">Main Gallery</h3>
+                    <p style="color: var(--text-muted);">Cultural Arts District, Royal Wing 402</p>
                 </div>
                 <div>
-                    <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">ساعات الدردشة</h3>
-                    <p style="color: var(--text-muted);">يومياً من 4:00 مساءً حتى 11:00 مساءً (بحجز مسبق)</p>
+                    <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">Visiting Hours</h3>
+                    <p style="color: var(--text-muted);">Daily from 4:00 PM to 11:00 PM (By Appointment)</p>
                 </div>
             </div>
         </div>
@@ -777,7 +776,7 @@
                 </div>
                 <div>
                     <div id="modalPrice" class="art-price" style="font-size: 1.5rem; margin-bottom: 1rem;"></div>
-                    <button class="cta-btn" style="width: 100%;" onclick="alert('تم إرسال طلب الاقتناء، سيتواصل معك البائعين لدينا.')">طلب اقتناء هذه القطعة</button>
+                    <button class="cta-btn" style="width: 100%;" onclick="alert('Acquisition request sent. Our art consultant will contact you shortly.')">Request Acquisition</button>
                 </div>
             </div>
         </div>
@@ -786,7 +785,7 @@
     <!-- Favorites Drawer -->
     <div class="drawer" id="favDrawer">
         <div class="drawer-header">
-            <h3 style="color: var(--accent-gold);">الأعمال المفضلة</h3>
+            <h3 style="color: var(--accent-gold);">Favorite Works</h3>
             <button class="close-modal" style="position: static;" onclick="toggleFavDrawer()">✕</button>
         </div>
         <div id="favList" style="display: flex; flex-direction: column; gap: 1rem;">
@@ -796,82 +795,69 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-logo">ظل الشجرة</div>
-        <p>&copy; الصفحة الرئيسية للرواية. جميع الحقوق محفوظة.</p>
+        <div class="footer-logo">AURA ART GALLERY</div>
+        <p>&copy; 2026 AURA Fine Art Studio. All rights reserved.</p>
     </footer>
 
     <script>
-        // C:\Users\Montasser\Desktop\images
-const artData = [  
+        const artData = [
             {
                 id: 1,
-                title: "خالد",
-                artist: "عالم الواقع",
+                title: "Whispers of Mirage",
+                artist: "Dr. Alexander Farouk",
                 category: "paintings",
-                price: "الإصدار الأول",
-                         image: "images/KHALED.jpg",  
-                desc: "بطل الأحداث الذي يتنقل بين خيوط الذاكرة وعالم موازٍ مليء بالأسرار."
-            },            {
+                price: "$14,500",
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80",
+                desc: "An exceptional oil masterpiece depicting the interplay between memory and time with deep gold accents."
+            },
+            {
                 id: 2,
-                title: "سدن",
-                artist: "عالم البرزخ",
+                title: "Golden Eternity",
+                artist: "Sarah Al-Falij",
                 category: "sculptures",
-                price: "الإصدار الثاني",
-                image: " images /SADN.png",  
-                desc: "شخصية محورية تحمل أسرار الأبعاد الغامضة وتتقاطع طرقها مع خالد."
+                price: "$28,000",
+                image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1000&q=80",
+                desc: "A bronze sculpture inlaid with pure gold leaf expressing enduring passion and elegance."
             },
             {
                 id: 3,
-                title: "ماريا",
-                artist: "عالم الروح",
+                title: "Surreal Dimensions",
+                artist: "Marcus Rein",
                 category: "digital",
-                price: "الإصدار الخاص",
-                image: " images /MARIA.png",  
-                desc: "طيف نقي يربط بين عوالم الوعي واللاشعور بروحانية طاغية."
+                price: "$9,200",
+                image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1000&q=80",
+                desc: "Unique digital art printed on museum-grade canvas combining futuristic light and shadows."
             },
             {
                 id: 4,
-                title: "نوارة",
-                artist: "عالم الواقع",
+                title: "Symphony of Dunes",
+                artist: "Noura Al-Jaber",
                 category: "paintings",
-                price: "الإصدار الأول",
-                image: " images /NAWARA.jpg",  
-                desc: "نبض الحياة والواقع الملموس وسط عواصف الخيال الملحمي."
-            },
-            {
-                id: 5,
-                title: "وسن",
-                artist: "عالم الروح",
-                category: "digital",
-                price: "الإصدار الخاص",
-                image: " images /WASN.jpeg",  
-                desc: "أحلام اليقظة والحد الفاصل بين النوم واليقظة المطلقة."
+                price: "$18,000",
+                image: "https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=1000&q=80",
+                desc: "A canvas capturing the fluid motion of Arabian dunes under starlight."
             }
         ];
 
         const exhibitionsData = [
             {
-                title: "الجزء الأول: عرش الزجاج والسراب",
-                date: "قريباً في صالات النشر 2026",
-                image: " images /1.jpg",  
-                desc: "بداية الرحلة حيث يكتشف البطل الشطح إلى العالم الموازي بين أوراق الشجر القديمة."
+                title: "Golden Horizon Expo",
+                date: "November 15, 2026",
+                image: "https://images.unsplash.com/photo-1531243269054-5ebf6f34081e?auto=format&fit=crop&w=800&q=80",
+                desc: "An exclusive gathering of contemporary artists showcasing works inspired by the golden era."
             },
             {
-                title: "الجزء الثاني: نبيذ القمر",
-                date: "قريباً",
-                image: " images /2.jpg",  
-                desc: "توغل أعمق في تفاصيل الفنتازيا العالية والمشاعر المرتبطة بعوالم البرزخ."
-            },
-            {
-                title: "الجزء الثالث: صداء الذاكرة",
-                date: "قريباً",
-                image: " images /3.jpg",  
-                desc: "الملحمة الكبرى وختام الثلاثية العابرة للأعصار والأزمنة."
+                title: "Contemporary Sculpture Forum",
+                date: "December 02, 2026",
+                image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?auto=format&fit=crop&w=800&q=80",
+                desc: "Exhibition of 3D bronze and rare marble masterpieces."
             }
         ];
 
         let favorites = [];
         let currentSlide = 0;
+        let audioContext = null;
+        let isAudioPlaying = false;
 
         function switchPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -891,11 +877,11 @@ const artData = [
             const track = document.getElementById('sliderTrack');
             track.innerHTML = artData.map(item => `
                 <div class="slide">
-                    <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'">
+                    <img src="${item.image}" alt="${item.title}">
                     <div class="slide-info">
                         <h3 class="slide-title">${item.title}</h3>
                         <p class="slide-artist">${item.artist}</p>
-                        <button class="cta-btn" onclick="openModal(${item.id})">استكشف القطعة</button>
+                        <button class="cta-btn" onclick="openModal(${item.id})">Explore Piece</button>
                     </div>
                 </div>
             `).join('');
@@ -905,7 +891,7 @@ const artData = [
             const track = document.getElementById('sliderTrack');
             const total = artData.length;
             currentSlide = (currentSlide + dir + total) % total;
-            track.style.transform = `translateX(${currentSlide * 100}%)`;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
 
         function renderGallery(filter = 'all') {
@@ -915,7 +901,7 @@ const artData = [
             grid.innerHTML = items.map(item => `
                 <div class="art-card">
                     <div class="art-img-wrap">
-                        <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'">
+                        <img src="${item.image}" alt="${item.title}">
                         <div class="art-overlay">
                             <button class="icon-btn" onclick="openModal(${item.id})">🔍</button>
                             <button class="icon-btn" onclick="toggleFavorite(${item.id})">${favorites.includes(item.id) ? '❤️' : '🤍'}</button>
@@ -942,13 +928,13 @@ const artData = [
             const list = document.getElementById('exhibitionsList');
             list.innerHTML = exhibitionsData.map(ex => `
                 <div class="exhibition-card">
-                    <img class="exhibition-img" src="${ex.image}" alt="${ex.title}" onerror="this.style.display='none'">
+                    <img class="exhibition-img" src="${ex.image}" alt="${ex.title}">
                     <div class="exhibition-info">
                         <div class="exhibition-date">📅 ${ex.date}</div>
                         <h3 class="art-title" style="font-size: 1.6rem; margin-bottom: 0.8rem;">${ex.title}</h3>
                         <p style="color: var(--text-muted); margin-bottom: 1.5rem;">${ex.desc}</p>
                         <div>
-                            <button class="cta-btn" onclick="alert('تم تسجيل طلب الحضور، سنتواصل معكم قريباً.')">حجز بطاقة دعوة</button>
+                            <button class="cta-btn" onclick="alert('Invitation request received. We will contact you shortly.')">Book Invitation</button>
                         </div>
                     </div>
                 </div>
@@ -959,10 +945,7 @@ const artData = [
             const item = artData.find(a => a.id === id);
             if(!item) return;
 
-            const modalImg = document.getElementById('modalImg');
-            modalImg.src = item.image;
-            modalImg.style.display = 'block';
-
+            document.getElementById('modalImg').src = item.image;
             document.getElementById('modalTitle').innerText = item.title;
             document.getElementById('modalArtist').innerText = item.artist;
             document.getElementById('modalDesc').innerText = item.desc;
@@ -995,13 +978,13 @@ const artData = [
             const items = artData.filter(a => favorites.includes(a.id));
             
             if(items.length === 0) {
-                list.innerHTML = `<p style="color: var(--text-muted);">لا توجد أعمال في المفضلة حالياً.</p>`;
+                list.innerHTML = `<p style="color: var(--text-muted);">No favorite items added yet.</p>`;
                 return;
             }
 
             list.innerHTML = items.map(item => `
                 <div style="display: flex; gap: 1rem; align-items: center; background: var(--bg-primary); padding: 0.8rem; border-radius: 4px;">
-                    <img src="${item.image}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 4px;" onerror="this.style.display='none'">
+                    <img src="${item.image}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 4px;">
                     <div style="flex: 1;">
                         <h4 style="font-size: 0.95rem;">${item.title}</h4>
                         <p style="color: var(--accent-gold); font-size: 0.85rem;">${item.price}</p>
@@ -1013,8 +996,40 @@ const artData = [
 
         function handleContact(e) {
             e.preventDefault();
-            alert('شكراً لتواصلك معنا. تم استقبال رسالتك بنجاح.');
+            alert('Thank you for reaching out. Your message has been received.');
             e.target.reset();
+        }
+
+        function toggleAudio() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+
+            if (isAudioPlaying) {
+                audioContext.suspend();
+                isAudioPlaying = false;
+                document.getElementById('audioIcon').innerText = '🎵';
+            } else {
+                audioContext.resume();
+                playAmbientSynth();
+                isAudioPlaying = true;
+                document.getElementById('audioIcon').innerText = '🔊';
+            }
+        }
+
+        function playAmbientSynth() {
+            const osc = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+            
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(110, audioContext.currentTime);
+            
+            gain.gain.setValueAtTime(0.01, audioContext.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.08, audioContext.currentTime + 3);
+
+            osc.connect(gain);
+            gain.connect(audioContext.destination);
+            osc.start();
         }
 
         window.onload = () => {
