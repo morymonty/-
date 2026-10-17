@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ظل الشجرة | االصور النابضة</title>
+    <title>AURA | المعرض الفني الفاخر</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -182,7 +182,9 @@
             justify-content: center;
             text-align: center;
             padding: 0 2rem;
-            background: linear-gradient(to bottom, rgba(10,10,12,0.3), var(--bg-primary)), url('https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            /* يمكنك استبدال صورة الهيرو أدناه باسم صورتك الخاصة مثل: images/hero-bg.jpg */
+            background: linear-gradient(to bottom, rgba(10,10,12,0.6), var(--bg-primary)), url('images/hero-bg.jpg') center/cover no-repeat;
+            background-color: var(--bg-secondary);
             position: relative;
         }
 
@@ -273,6 +275,7 @@
             position: relative;
             display: flex;
             align-items: flex-end;
+            background: var(--bg-tertiary);
         }
 
         .slide img {
@@ -383,6 +386,7 @@
             position: relative;
             height: 380px;
             overflow: hidden;
+            background: var(--bg-tertiary);
         }
 
         .art-img-wrap img {
@@ -471,6 +475,7 @@
             height: 100%;
             min-height: 400px;
             object-fit: cover;
+            background: var(--bg-tertiary);
         }
 
         .modal-body {
@@ -514,6 +519,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            background: var(--bg-tertiary);
         }
 
         .exhibition-info {
@@ -639,19 +645,16 @@
     <header>
         <a href="#" class="logo" onclick="switchPage('home')">
             <div class="logo-mark">A</div>
-            <span>ظل الشجرة</span>
+            <span>AURA</span>
         </a>
         <ul class="nav-links">
             <li><a class="nav-link active" onclick="switchPage('home')">الرئيسية</a></li>
-            <li><a class="nav-link" onclick="switchPage('gallery')">الصور</a></li>
-            <li><a class="nav-link" onclick="switchPage('exhibitions')"> مشاهد من الرواية</a></li>
-            <li><a class="nav-link" onclick="switchPage('about')">عن ظل الشجرة</a></li>
+            <li><a class="nav-link" onclick="switchPage('gallery')">المعرض</a></li>
+            <li><a class="nav-link" onclick="switchPage('exhibitions')">المعارض والقاعات</a></li>
+            <li><a class="nav-link" onclick="switchPage('about')">عن أورا</a></li>
             <li><a class="nav-link" onclick="switchPage('contact')">تواصل معنا</a></li>
         </ul>
         <div class="header-actions">
-            <button class="icon-btn" id="audioToggleBtn" onclick="toggleAudio()">
-                <span id="audioIcon">🎵</span> <span>الموسيقى</span>
-            </button>
             <button class="icon-btn" onclick="toggleFavDrawer()">
                 ❤️ <span id="favCount">0</span>
             </button>
@@ -663,17 +666,17 @@
         <div class="hero">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1 class="hero-title">ظل الشجرة ((شطح الى عالم موازى ))</h1>
-                <p class="hero-subtitle">«ثلاثية روائية نسجت خيوطها بين واقعٍ يخلب العقول، ورومانسيةٍ تشدو للوجدان، وفنتازيا تحلّق في آفاق الخيال.. صُممت صياغتها لتخاطب ذائقة النخبة.»</p>
-                <button class="cta-btn" onclick="switchPage('gallery')">استكشف المشاهد</button>
+                <h1 class="hero-title">حيث تلتقي الفخامة بإبداع الفن المعاصر</h1>
+                <p class="hero-subtitle">مجموعة صُممت لنخبة مقتني الفنون والأعمال الفريدة عالمياً</p>
+                <button class="cta-btn" onclick="switchPage('gallery')">استكشف المجموعة الحصرية</button>
             </div>
         </div>
 
         <!-- Masterpiece Slider -->
         <div class="featured-slider">
             <div class="section-header">
-                <h2 class="section-title">شخصيات مؤثرة</h2>
-                <p class="section-subtitle">نبض من قلب الرواية</p>
+                <h2 class="section-title">تحف الشهر المختارة</h2>
+                <p class="section-subtitle">أعمال حصرية معروضة لأول مرة</p>
             </div>
             <div class="slider-container">
                 <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
@@ -688,8 +691,8 @@
     <!-- Page 2: Gallery -->
     <section id="page-gallery" class="page">
         <div class="section-header">
-            <h2 class="section-title">نبذة من فصول الرواية</h2>
-            <p class="section-subtitle">تصفح المقدمة والخاتمة </p>
+            <h2 class="section-title">معرض الأعمال الفنية</h2>
+            <p class="section-subtitle">تصفح الأعمال بحسب الفئة أو النمط الفني</p>
         </div>
 
         <div class="gallery-controls">
@@ -718,16 +721,16 @@
     <!-- Page 4: About -->
     <section id="page-about" class="page">
         <div class="section-header">
-            <h2 class="section-title">عن ظل الشجرة </h2>
-            <p class="section-subtitle"> رواية تجمع بين الرومانسية الشغوفة والخيال الساحر</p>
+            <h2 class="section-title">عن جاليري أورا</h2>
+            <p class="section-subtitle">قصتنا في رعاية الفن الأصيل والسريالي</p>
         </div>
         <div style="max-width: 800px; margin: 0 auto; padding: 0 4% 5rem; text-align: center; color: var(--text-muted); line-height: 2;">
-            <p>«أعمالٌ روائية تتجاوز حدود المألوف؛ حيث يتمازج الذهول بالحب والأسطورة، في صياغةٍ أدبية رفيعة لا تقتنيها إلا الذوائق الاستثنائية.»</p>
+            <p>تأسس جاليري AURA ليكون ملاذاً لعشاق الفن الراقي والأعمال التي تتجاوز حدود الزمن. نجمع بين أصالة الشرق وعصرنة الغرب، لنقدم تحفاً فنية تنبض بالحياة وتضفي رونقاً استثنائياً على المساحات الفاخرة.</p>
             <br>
-            <p>ي«مجموعة روائية تجمع بين غرابة الواقع، وسحر الرومانسية، وجنون الخيال.. صِيغت بحرفيةٍ أدبية عالية لتليق بالنخبة من عشاق الأدب الرفيع.»</p>
+            <p>يعمل فريقنا مع كبار الفنانين المستقلين والمؤسسات الفنية العالمية لضمان موثوقية كل قطعة، وتوفير تجربة اقتناء مخصصة للمستثمرين ومقتني التحف.</p>
         </div>
     </section>
- 
+
     <!-- Page 5: Contact -->
     <section id="page-contact" class="page">
         <div class="section-header">
@@ -753,10 +756,10 @@
             <div style="display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;">
                 <div>
                     <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">المقر الرئيسي</h3>
-                    <p style="color: var(--text-muted);">عوالم متداخلة </p>
+                    <p style="color: var(--text-muted);">حي الفنون الثقافي، الجناح الملكي 402</p>
                 </div>
                 <div>
-                    <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">ساعات الدردشة</h3>
+                    <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">ساعات الاستقبال</h3>
                     <p style="color: var(--text-muted);">يومياً من 4:00 مساءً حتى 11:00 مساءً (بحجز مسبق)</p>
                 </div>
             </div>
@@ -776,7 +779,7 @@
                 </div>
                 <div>
                     <div id="modalPrice" class="art-price" style="font-size: 1.5rem; margin-bottom: 1rem;"></div>
-                    <button class="cta-btn" style="width: 100%;" onclick="alert('تم إرسال طلب الاقتناء، سيتواصل معك البائعين لدينا.')">طلب اقتناء هذه الرواية</button>
+                    <button class="cta-btn" style="width: 100%;" onclick="alert('تم إرسال طلب الاقتناء، سيتواصل معك مستشار الفنون لدينا.')">طلب اقتناء هذه القطعة</button>
                 </div>
             </div>
         </div>
@@ -795,27 +798,33 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-logo">ظل الشجرة </div>
-        <p>&copy;2026 الصفحة الرئيسية للرواية . جميع الحقوق محفوظة.</p>
+        <div class="footer-logo">AURA ART GALLERY</div>
+        <p>&copy; 2026 AURA Fine Art Studio. جميع الحقوق محفوظة.</p>
     </footer>
 
     <script>
+        /* 
+           قم بتعديل خاصية image لكل عمل بوضع مسار الصورة المخزنة في جهازك 
+           مثال: "images/art1.jpg" أو "my_folder/photo.png"
+        */
         const artData = [
             {
                 id: 1,
-                title: "خالد",
+                title: "همسات السراب",
+                artist: "د. ألكسندر فاروق",
                 category: "paintings",
-                image: "KHALED. a3fb3927b675?auto=format&fit=crop&w=1000&q=80",
+                price: "$14,500",
+                image: "images/art1.jpg", 
                 desc: "عمل زيتي استثنائي يتناول التداخل بين الذاكرة والوقت بألوان ذهبية وداكنة عميقة."
             },
             {
                 id: 2,
-                title: "ماريا",
-                artist: "سدن",
+                title: "خلود الذهبي",
+                artist: "سارة الفليج",
                 category: "sculptures",
                 price: "$28,000",
-                image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1000&q=80",
-                desc: "صورة للغلاف ."
+                image: "images/art2.jpg", 
+                desc: "منحوتة برونزية مطعمة بأوراق الذهب الخالص تعبر عن الشغف والأناقة المستمرة."
             },
             {
                 id: 3,
@@ -823,7 +832,7 @@
                 artist: "ماركوس راين",
                 category: "digital",
                 price: "$9,200",
-                image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1000&q=80",
+                image: "images/art3.jpg", 
                 desc: "فن رقمي فريد مطبوع بقماش كانفاس متحف يجمع بين الضوء والظلال المستقبليتين."
             },
             {
@@ -832,7 +841,7 @@
                 artist: "نورة الجابر",
                 category: "paintings",
                 price: "$18,000",
-                image: "https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=1000&q=80",
+                image: "images/art4.jpg", 
                 desc: "لوحة تعبر عن انسيابية الرمال العربية تحت أضواء النجوم الخافتة."
             }
         ];
@@ -841,21 +850,19 @@
             {
                 title: "معرض الأفق الذهبي",
                 date: "15 نوفمبر 2026",
-                image: "https://images.unsplash.com/photo-1531243269054-5ebf6f34081e?auto=format&fit=crop&w=800&q=80",
+                image: "images/exhibition1.jpg", 
                 desc: "تجمع حصري لأبرز الفنانين المعاصرين لعرض أعمال مستوحاة من العصر الذهبي."
             },
             {
                 title: "ملتقى النحت المعاصر",
                 date: "02 ديسمبر 2026",
-                image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?auto=format&fit=crop&w=800&q=80",
+                image: "images/exhibition2.jpg", 
                 desc: "استعراض لأجمل الأعمال ثلاثية الأبعاد المصنوعة من البرونز والرخام النادر."
             }
         ];
 
         let favorites = [];
         let currentSlide = 0;
-        let audioContext = null;
-        let isAudioPlaying = false;
 
         function switchPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -875,7 +882,7 @@
             const track = document.getElementById('sliderTrack');
             track.innerHTML = artData.map(item => `
                 <div class="slide">
-                    <img src="${item.image}" alt="${item.title}">
+                    <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'">
                     <div class="slide-info">
                         <h3 class="slide-title">${item.title}</h3>
                         <p class="slide-artist">${item.artist}</p>
@@ -899,7 +906,7 @@
             grid.innerHTML = items.map(item => `
                 <div class="art-card">
                     <div class="art-img-wrap">
-                        <img src="${item.image}" alt="${item.title}">
+                        <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'">
                         <div class="art-overlay">
                             <button class="icon-btn" onclick="openModal(${item.id})">🔍</button>
                             <button class="icon-btn" onclick="toggleFavorite(${item.id})">${favorites.includes(item.id) ? '❤️' : '🤍'}</button>
@@ -926,7 +933,7 @@
             const list = document.getElementById('exhibitionsList');
             list.innerHTML = exhibitionsData.map(ex => `
                 <div class="exhibition-card">
-                    <img class="exhibition-img" src="${ex.image}" alt="${ex.title}">
+                    <img class="exhibition-img" src="${ex.image}" alt="${ex.title}" onerror="this.style.display='none'">
                     <div class="exhibition-info">
                         <div class="exhibition-date">📅 ${ex.date}</div>
                         <h3 class="art-title" style="font-size: 1.6rem; margin-bottom: 0.8rem;">${ex.title}</h3>
@@ -943,7 +950,10 @@
             const item = artData.find(a => a.id === id);
             if(!item) return;
 
-            document.getElementById('modalImg').src = item.image;
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = item.image;
+            modalImg.style.display = 'block';
+
             document.getElementById('modalTitle').innerText = item.title;
             document.getElementById('modalArtist').innerText = item.artist;
             document.getElementById('modalDesc').innerText = item.desc;
@@ -982,7 +992,7 @@
 
             list.innerHTML = items.map(item => `
                 <div style="display: flex; gap: 1rem; align-items: center; background: var(--bg-primary); padding: 0.8rem; border-radius: 4px;">
-                    <img src="${item.image}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 4px;">
+                    <img src="${item.image}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 4px;" onerror="this.style.display='none'">
                     <div style="flex: 1;">
                         <h4 style="font-size: 0.95rem;">${item.title}</h4>
                         <p style="color: var(--accent-gold); font-size: 0.85rem;">${item.price}</p>
@@ -996,8 +1006,6 @@
             e.preventDefault();
             alert('شكراً لتواصلك معنا. تم استقبال رسالتك بنجاح.');
             e.target.reset();
-        }
-
         }
 
         window.onload = () => {
